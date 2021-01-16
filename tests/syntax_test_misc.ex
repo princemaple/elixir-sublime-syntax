@@ -593,9 +593,9 @@ end[]
 #  ^^ constant.other.capture
 
  &<%= num %>
-#          ^ keyword.operator.comparison
+#         ^ entity.name.tag.ex.eex
 #     ^^^ variable.other
-# ^ keyword.operator.comparison
+#  ^^ entity.name.tag.ex.eex
 #^ keyword.operator.capture
 
  & 0.1
@@ -1255,7 +1255,7 @@ def f(<< { >>) }
 def f(<< %{ >>) }
 #               ^ invalid.illegal.stray-closing-brace
 def f(<< << >>) >>
-#               ^^ invalid.illegal.stray-closing-binary
+                ^^ invalid.illegal.stray-closing-binary
 
 def f(( ( )) )
 #            ^ punctuation.definition.parameters.end
@@ -1266,7 +1266,7 @@ def f(( { )) }
 def f(( %{ )) }
 #             ^ invalid.illegal.stray-closing-brace
 def f(( << )) >>
-#             ^^ invalid.illegal.stray-closing-binary
+              ^^ invalid.illegal.stray-closing-binary
 
 def f([ ( ]) )
 #            ^ invalid.illegal.stray-closing-parenthesis
@@ -1277,7 +1277,7 @@ def f([ { ]) }
 def f([ %{ ]) }
 #             ^ invalid.illegal.stray-closing-brace
 def f([ << ]) >>
-#             ^^ invalid.illegal.stray-closing-binary
+              ^^ invalid.illegal.stray-closing-binary
 
 def f({ ( }) )
 #            ^ invalid.illegal.stray-closing-parenthesis
@@ -1288,7 +1288,7 @@ def f({ { }) }
 def f({ %{ }) }
 #             ^ invalid.illegal.stray-closing-brace
 def f({ << }) >>
-#             ^^ invalid.illegal.stray-closing-binary
+              ^^ invalid.illegal.stray-closing-binary
 
 def f(%{ ( }) )
 #             ^ invalid.illegal.stray-closing-parenthesis
@@ -1299,20 +1299,20 @@ def f(%{ { }) }
 def f(%{ %{ }) }
 #              ^ invalid.illegal.stray-closing-brace
 def f(%{ << }) >>
-#              ^^ invalid.illegal.stray-closing-binary
+               ^^ invalid.illegal.stray-closing-binary
 
 <%= ( %> <% ) %>
-#           ^ invalid.illegal.stray-closing-parenthesis
 #   ^ punctuation.section.group.begin
+            ^ invalid.illegal.stray-closing-parenthesis
 <%= [ %> <% ] %>
-#           ^ invalid.illegal.stray-closing-bracket
 #   ^ punctuation.section.brackets.begin
+            ^ invalid.illegal.stray-closing-bracket
 <%= { %> <% } %>
-#           ^ invalid.illegal.stray-closing-brace
 #   ^ punctuation.section.sequence.begin
+            ^ invalid.illegal.stray-closing-brace
 <%= %{ %> <% } %>
-#            ^ invalid.illegal.stray-closing-brace
 #    ^ punctuation.section.mapping.begin
+             ^ invalid.illegal.stray-closing-brace
 <%= << %> <% >> %>
-#            ^^ invalid.illegal.stray-closing-binary
 #   ^^ punctuation.definition.string.begin
+             ^^ invalid.illegal.stray-closing-binary
